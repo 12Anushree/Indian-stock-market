@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', 'Calibri', system-ui, -apple-system, sans-serif;
+  background: #f3f3f3;
+  color: #1f1f1f;
+}
+
+/* Excel-style scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #e7e6e6;
+}
+::-webkit-scrollbar-thumb {
+  background: #a0a0a0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+
+/* Ticker animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 60s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulse-cell {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(255, 199, 44, 0.4); }
+}
+.flash-up {
+  animation: pulse-cell 0.6s ease-out;
+  background-color: rgba(0, 176, 80, 0.25);
+}
+.flash-down {
+  animation: pulse-cell 0.6s ease-out;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Excel grid header */
+.excel-grid-header {
+  background: linear-gradient(180deg, #f9f9f9 0%, #e8e8e8 100%);
+  border-bottom: 1px solid #b4b4b4;
+  border-right: 1px solid #d4d4d4;
+  font-weight: 600;
+  font-size: 11px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.excel-cell {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: 'Calibri', 'Segoe UI', sans-serif;
+}
+
+.excel-row-header {
+  background: linear-gradient(90deg, #f9f9f9 0%, #ededed 100%);
+  border-right: 1px solid #b4b4b4;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 11px;
+  color: #555;
+}
+
+.excel-tab {
+  background: linear-gradient(180deg, #f5f5f5 0%, #e1e1e1 100%);
+  border: 1px solid #a0a0a0;
+  border-bottom: none;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  top: 1px;
+}
+
+.excel-tab.active {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+  color: #107c41;
+  font-weight: 600;
+  border-bottom: 1px solid white;
+  z-index: 10;
+}
+
+.excel-tab:hover:not(.active) {
+  background: linear-gradient(180deg, #fafafa 0%, #ebebeb 100%);
+}
+
+/* Rupee notes color theme */
+.bg-rupee-bg { background-color: #f3f3f3; }
+.bg-excel-green { background-color: #107c41; }
+.text-excel-green { color: #107c41; }
+.bg-rupee-orange { background-color: #ff9933; }
+.bg-rupee-green { background-color: #138808; }
+.bg-rupee-cream { background-color: #f5e6c8; }
+
+/* Card shadows like Excel ribbon */
+.excel-card {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  border-radius: 2px;
+}
+
+.excel-card-header {
+  background: linear-gradient(180deg, #fafafa 0%, #ededed 100%);
+  border-bottom: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Ribbon */
+.ribbon-tab {
+  background: linear-gradient(180deg, #217346 0%, #107c41 100%);
+}
+
+/* Custom range slider */
+input[type="range"].excel-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #d4d4d4;
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"].excel-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #107c41;
+  cursor: pointer;
+  border: 1px solid #0a5a30;
+}
+
+/* News card hover */
+.news-card {
+  transition: all 0.2s ease;
+}
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
